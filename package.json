@@ -1,0 +1,28 @@
+{
+  "name": "tiny-ee",
+  "version": "0.0.1",
+  "description": "The smallest event emitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshkurti/tiny-ee.git"
+  },
+  "keywords": [
+    "lightwieght",
+    "small",
+    "tiny",
+    "ee",
+    "eventemitter",
+    "event",
+    "emitter"
+  ],
+  "author": "Joni SHKURTI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jshkurti/tiny-ee/issues"
+  },
+  "homepage": "https://github.com/jshkurti/tiny-ee#readme"
+}
