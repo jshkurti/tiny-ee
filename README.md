@@ -8,13 +8,24 @@ The smallest event emitter for Node.js
 ## Use
 
 ```js
-var ee = require('tiny-ee')();
+var Emitter = require('tiny-ee');
+var emitter = new Emitter();
 
-ee.on('itworks', function(data) {
-  console.log(data);
+emitter.on('itworks', console.log);
+
+emitter.once('itworks', function() {
+  console.log('I will die after this');
 });
 
-ee.emit('itworks', 'yep');
+emitter.emit('itworks', 'yep');
+
+
+// More methods
+emitter.removeListener('itworks', console.log);
+emitter.addListener('itworks', console.log);
+emitter.removeAllListeners('itworks');
+console.log(emitter.listeners('itworks'));
+
 ```
 
 ## License
