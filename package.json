@@ -1,6 +1,6 @@
 {
   "name": "tiny-ee",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The smallest event emitter",
   "main": "index.js",
   "scripts": {
