@@ -56,18 +56,23 @@ tinyEE.prototype.once = function(id, cb) {
 };
 
 tinyEE.prototype.emit = function() {
+  var self = this;
   var args = arguments;
   var id   = args[0];
 
   delete args['0'];
   args = Object.keys(args).map(function(k) {return args[k]});
 
-  for (var i = 0; i < this.events.length; ++i) {
-    if (this.events[i]
-        && this.events[i].id === id) {
-      this.events[i].cb.apply(null, args);
-      if (this.events[i].once)
-        this.events.splice(i--, 1);
+  for (var i = 0; i < self.events.length; ++i) {
+    if (self.events[i]
+        && self.events[i].id === id) {
+      (function (i) {
+        process.nextTick(function() {
+          self.events[i].cb.apply(null, args);
+        });
+      })(i);
+      if (self.events[i].once)
+        self.events.splice(i--, 1);
     }
   }
 };
