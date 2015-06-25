@@ -69,10 +69,10 @@ tinyEE.prototype.emit = function() {
       (function (i) {
         process.nextTick(function() {
           self.events[i].cb.apply(null, args);
+          if (self.events[i].once)
+            self.events.splice(i--, 1);
         });
       })(i);
-      if (self.events[i].once)
-        self.events.splice(i--, 1);
     }
   }
 };
